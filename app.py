@@ -1,9 +1,13 @@
-# Remove or comment out the background_worker and threading
+from flask import Flask, jsonify
+from flask_cors import CORS
+import numpy as np
+import time
 
-# Change your API endpoints to generate fresh data each time
+app = Flask(__name__)
+CORS(app)
+
 @app.route('/api/current')
 def get_current():
-    # Generate new random data on every request
     data = {
         'timestamp': time.time(),
         'gases': {
@@ -16,7 +20,6 @@ def get_current():
 
 @app.route('/api/history')
 def get_history():
-    # Generate 24 hours of fake history on the fly
     history = []
     now = time.time()
     for i in range(24):
@@ -27,3 +30,6 @@ def get_history():
             'H2O': 0.5 + np.random.normal(0, 0.1)
         })
     return jsonify(history)
+
+if __name__ == '__main__':
+    app.run()
