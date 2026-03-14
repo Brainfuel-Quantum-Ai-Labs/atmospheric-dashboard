@@ -1,8 +1,8 @@
 Flask
 Flask-CORS
-numpy
-matplotlib
-scipy
+#numpy
+#matplotlib
+#scipy
 hapi
 lmfit
 gunicorn
