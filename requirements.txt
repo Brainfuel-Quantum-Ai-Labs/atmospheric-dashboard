@@ -1,0 +1,8 @@
+Flask
+Flask-CORS
+numpy
+matplotlib
+scipy
+hapi
+lmfit
+gunicorn
